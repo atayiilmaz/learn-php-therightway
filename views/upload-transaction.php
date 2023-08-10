@@ -7,7 +7,12 @@
 </head>
 <body>
     
-    <h1>Upload Transaction.csv file</h1>
+    <h1>Upload csv file</h1>
+    
+    <form action="/transactions/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="file">
+        <button type="submit">Upload</button>
+    </form>
     
 
 
