@@ -21,7 +21,7 @@ class Transaction extends Model
     
         while (($data = fgetcsv($handle, 10000, ',')) !== FALSE) {
             $transactions[] = [
-                'date' => $data[0],
+                'date' => date('Y-m-d H:i:s', (int)$data[0]),
                 'check_number' => $data[1],
                 'description' => $data[2],
                 'amount' => $data[3],
