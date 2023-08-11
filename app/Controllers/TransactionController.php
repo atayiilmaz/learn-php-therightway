@@ -5,11 +5,17 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\View;
+use App\Models\Transaction;
 
 class TransactionController
 {
     public function transactions(): View
     {
+        $transactionModel = new Transaction();
+
+        $transactions = $transactionModel->getTransactionDataFromCsv(STORAGE_PATH . '/transactions_sample.csv');
+        $transactionModel->insertTransactionsIntoDatabase($transactions);
+
         return View::make('transactions');
     }
 
